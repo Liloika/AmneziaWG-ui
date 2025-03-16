@@ -75,5 +75,4 @@ Screenshot of the Amnezia VPN UI:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/amnezia-vpn-ui.git
-   cd amnezia-vpn-ui
+   git clone https://github.com/Liloika/AmneziaWG-ui.git
