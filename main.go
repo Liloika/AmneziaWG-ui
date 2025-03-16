@@ -12,16 +12,10 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
-	"github.com/joho/godotenv"
+//	"github.com/joho/godotenv"
 )
 
 func main() {
-
-	//env
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 
 	iconPath := os.Getenv("ICON_PATH")
 	confPath := os.Getenv("CONF_PATH")
@@ -67,7 +61,7 @@ func main() {
 
 	//connect
 	executionButton := widget.NewButton("Connect", func() {
-		cmd := exec.Command("awg-quick", "up", confPath)
+		cmd := exec.Command("sudo", "awg-quick", "up", confPath)
 		err := cmd.Run()
 		if err != nil {
 			resultLabel.SetText(fmt.Sprintf("Error: %s", err))
@@ -79,7 +73,7 @@ func main() {
 
 	// disconnect
 	disconnectButton := widget.NewButton("Disconnect", func() {
-		cmd := exec.Command("awg-quick", "down", confPath)
+		cmd := exec.Command("sudo", "awg-quick", "down", confPath)
 		err := cmd.Run()
 		if err != nil {
 			resultLabel.SetText(fmt.Sprintf("Error: %s", err))
